@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Forest Fire Theme - No Light Mode (Pure Black Background) */
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 98%;
+  --card: 160 30% 5%;
+  --card-foreground: 120 100% 80%;
+  --border: 135 70% 30%;
+  --input: 240 3.7% 15.9%;
+  --primary: 135 100% 45%;
+  --primary-foreground: 355 100% 100%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 120 100% 80%;
+  --accent: 135 100% 60%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 135 100% 50%;
+  --radius: 0.5rem;
+  
+  /* Chart colors - Vibrant Forest Fire */
+  --chart-1: 135 100% 50%;
+  --chart-2: 0 84% 60%;
+  --chart-3: 120 100% 70%;
+  --chart-4: 95 100% 60%;
+  --chart-5: 160 100% 60%;
+  
+  /* Theme-specific colors - Enhanced Forest Fire Theme */
+  --forest: 135 100% 50%;
+  --forest-light: 120 100% 75%;
+  --forest-dark: 160 100% 35%;
+  --accent-red: 0 100% 65%;
+  --midnight: 0 0% 0%;
+  --midnight-light: 135 50% 15%;
+  --midnight-dark: 0 0% 0%;
+  
+  /* Sidebar theme */
+  --sidebar-background: 0 0% 0%;
+  --sidebar-foreground: 120 100% 80%;
+  --sidebar-primary: 135 100% 50%;
+  --sidebar-primary-foreground: 355 100% 100%;
+  --sidebar-accent: 120 100% 70%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 135 70% 30%;
+  --sidebar-ring: 135 100% 50%;
+}
+
+/* Dark mode is the only mode */
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 98%;
+  --card: 160 30% 5%;
+  --card-foreground: 120 100% 80%;
+  --border: 135 70% 30%;
+  --input: 240 3.7% 15.9%;
+  --primary: 135 100% 45%;
+  --primary-foreground: 355 100% 100%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 120 100% 80%;
+  --accent: 135 100% 60%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 135 100% 50%;
+  --radius: 0.5rem;
+  
+  /* Chart colors - Vibrant Forest Fire */
+  --chart-1: 135 100% 50%;
+  --chart-2: 0 84% 60%;
+  --chart-3: 120 100% 70%;
+  --chart-4: 95 100% 60%;
+  --chart-5: 160 100% 60%;
+  
+  /* Theme-specific colors - Enhanced Forest Fire Theme */
+  --forest: 135 100% 50%;
+  --forest-light: 120 100% 75%;
+  --forest-dark: 160 100% 35%;
+  --accent-red: 0 100% 65%;
+  --midnight: 0 0% 0%;
+  --midnight-light: 135 50% 15%;
+  --midnight-dark: 0 0% 0%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes dataflow {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.data-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dataflow 10s linear infinite;
+}
+
+/* Pulse effect for elements */
+.pulse-effect {
+  position: relative;
+}
+
+.pulse-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 255, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
+}
+
+/* Animated gradient backgrounds */
+.animated-gradient {
+  background: linear-gradient(270deg, #00ff00, #4CAF50, #00aa00);
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+/* Enhanced card styles with hover effects */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 255, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.05);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 255, 0, 0.15);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #00ff00, #4CAF50);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(0, 255, 0, 0.9); }
+  100% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.7); }
+}
+
+/* Button hover effects */
+button, .button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+button:hover, .button:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+button::after, .button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 255, 0, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+}
+
+button:hover::after, .button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* SVG Chart stroke animation */
+.chart-stroke {
+  stroke: #00ff00;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: chartStroke 2s linear forwards;
+}
+
+@keyframes chartStroke {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Data highlight effect */
+.data-highlight {
+  transition: all 0.3s ease;
+}
+
+.data-highlight:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
+  transform: scale(1.05);
+}
+
+/* Loading spinner with forest fire theme */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #00ff00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
